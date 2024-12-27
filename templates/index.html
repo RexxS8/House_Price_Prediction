@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediksi Harga Rumah</title>
+</head>
+<body>
+  <h1>Prediksi Harga Rumah</h1>
+  <form action="{{ url_for('predict_price') }}" method="POST">
+    <!-- Input fields for house_age, dist_to_MRT, and conv_store -->
+    <input type="text" name="house_age" placeholder="House Age">
+    <input type="text" name="dist_to_MRT" placeholder="Distance to MRT">
+    <input type="text" name="conv_store" placeholder="Convenience Store Count">
+    <button type="submit">Predict</button>
+  </form>
+  
+  <!-- Menampilkan hasil prediksi di bawah form jika prediction_text tidak kosong -->
+  <p>Prediksi Harga Rumah (Linear Regression): {{ linear_regression_prediction }}</p>
+  <p>Prediksi Harga Rumah (MLP Regressor): {{ mlp_regressor_prediction }}</p>
+</body>
+</html>
